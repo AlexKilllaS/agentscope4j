@@ -1,0 +1,79 @@
+# AgentScope4J Configuration
+spring:
+  application:
+    name: agentscope4j
+  profiles:
+    active: dev
+
+# Server Configuration
+server:
+  port: 8080
+  servlet:
+    context-path: /agentscope
+
+# Logging Configuration
+logging:
+  level:
+    com.agentscope: INFO
+    org.springframework: WARN
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/agentscope4j.log
+
+# AgentScope Configuration
+agentscope:
+  # Model Configuration
+  models:
+    openai:
+      api-key: ${OPENAI_API_KEY:}
+      base-url: https://api.openai.com/v1
+      timeout: 30000
+    dashscope:
+      api-key: ${DASHSCOPE_API_KEY:}
+      base-url: https://dashscope.aliyuncs.com/api/v1
+      timeout: 30000
+    gemini:
+      api-key: ${GEMINI_API_KEY:}
+      base-url: https://generativelanguage.googleapis.com/v1
+      timeout: 30000
+  
+  # Agent Configuration
+  agents:
+    default-timeout: 60000
+    max-retry: 3
+  
+  # Memory Configuration
+  memory:
+    max-history: 1000
+    enable-long-term: false
+  
+  # Tool Configuration
+  tools:
+    execution-timeout: 30000
+    enable-async: true
+
+---
+# Development Profile
+spring:
+  config:
+    activate:
+      on-profile: dev
+  
+logging:
+  level:
+    com.agentscope: DEBUG
+    root: INFO
+
+---
+# Production Profile
+spring:
+  config:
+    activate:
+      on-profile: prod
+      
+logging:
+  level:
+    com.agentscope: INFO
+    root: WARN
