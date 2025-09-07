@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 /**
  * AgentScope4J Spring Boot Application
- * 
+ *
  * @author Alex Huangfu
  * @version 1.0.0
  */

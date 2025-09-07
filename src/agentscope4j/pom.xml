@@ -23,6 +23,28 @@
         <junit.version>5.10.0</junit.version>
     </properties>
 
+    <!-- 添加国内镜像仓库 -->
+    <repositories>
+        <repository>
+            <id>aliyunmaven</id>
+            <name>阿里云公共仓库</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+        <repository>
+            <id>aliyun-central</id>
+            <name>阿里云中央仓库</name>
+            <url>https://maven.aliyun.com/repository/central</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>aliyun-plugin</id>
+            <name>阿里云插件仓库</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <dependencies>
         <!-- Spring Boot Starter -->
         <dependency>
@@ -30,14 +52,14 @@
             <artifactId>spring-boot-starter</artifactId>
             <version>${spring.boot.version}</version>
         </dependency>
-        
+
         <!-- Spring Boot Web Starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring.boot.version}</version>
         </dependency>
-        
+
         <!-- Spring Boot Configuration Processor -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -52,7 +74,7 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
@@ -65,21 +87,21 @@
             <artifactId>okhttp</artifactId>
             <version>${okhttp.version}</version>
         </dependency>
-        
+
         <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
-        
+
         <!-- Apache Commons Lang -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.13.0</version>
         </dependency>
-        
+
         <!-- Validation -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -94,7 +116,7 @@
             <version>${spring.boot.version}</version>
             <scope>test</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -117,7 +139,7 @@
                     </execution>
                 </executions>
             </plugin>
-            
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -127,7 +149,7 @@
                     <target>17</target>
                 </configuration>
             </plugin>
-            
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
